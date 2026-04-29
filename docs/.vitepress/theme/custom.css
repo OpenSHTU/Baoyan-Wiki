@@ -109,6 +109,17 @@ body {
   background-attachment: fixed;
 }
 
+body:has(.VPDoc:not(.landing-page)) {
+  background: #ffffff;
+  background-color: #ffffff;
+  background-attachment: scroll;
+}
+
+.dark body:has(.VPDoc:not(.landing-page)) {
+  background: #1b1b1f;
+  background-color: #1b1b1f;
+}
+
 .VPContent,
 .VPDoc,
 .VPDoc .container,
