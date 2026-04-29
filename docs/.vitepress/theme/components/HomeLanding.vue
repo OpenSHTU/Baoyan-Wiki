@@ -47,7 +47,11 @@
       </div>
 
       <div class="hero__visual">
-        <div class="badge-emblem" aria-hidden="true">
+        <div
+          class="badge-emblem"
+          :class="{ 'badge-emblem--intro': showBadgeIntro }"
+          aria-hidden="true"
+        >
           <img :src="logoRed" alt="" />
         </div>
 
@@ -296,15 +300,35 @@ const links = [
 ]
 
 const step = ref(0)
+const showBadgeIntro = ref(false)
 const active = computed(() => links[step.value])
 const counter = computed(() => String(step.value + 1).padStart(2, '0'))
 const prev = () => { step.value = (step.value - 1 + links.length) % links.length }
 const next = () => { step.value = (step.value + 1) % links.length }
 
 let observer = null
+let badgeIntroTimer = null
 
 onMounted(() => {
-  if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return
+  if (typeof window === 'undefined') return
+
+  try {
+    const key = 'baoyan-wiki-badge-intro-seen'
+    if (!localStorage.getItem(key)) {
+      showBadgeIntro.value = true
+      localStorage.setItem(key, '1')
+      badgeIntroTimer = window.setTimeout(() => {
+        showBadgeIntro.value = false
+      }, 2300)
+    }
+  } catch {
+    showBadgeIntro.value = true
+    badgeIntroTimer = window.setTimeout(() => {
+      showBadgeIntro.value = false
+    }, 2300)
+  }
+
+  if (!('IntersectionObserver' in window)) return
   observer = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {
@@ -321,6 +345,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   observer?.disconnect()
+  if (badgeIntroTimer) window.clearTimeout(badgeIntroTimer)
 })
 </script>
 
@@ -432,13 +457,13 @@ onUnmounted(() => {
 
 .hero {
   width: var(--container);
-  min-height: calc(100vh - var(--vp-nav-height) - 150px);
+  min-height: calc(100vh - var(--vp-nav-height) - 230px);
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
   align-items: center;
   gap: 28px;
-  padding: 64px 0 36px;
+  padding: 44px 0 14px;
 }
 
 .hero__content { position: relative; z-index: 2; }
@@ -597,7 +622,7 @@ onUnmounted(() => {
 
 .hero__visual {
   position: relative;
-  min-height: 520px;
+  min-height: 440px;
   perspective: 1100px;
   isolation: isolate;
 }
@@ -636,7 +661,8 @@ onUnmounted(() => {
 
 .badge-emblem img { width: 100%; height: 100%; display: block; }
 
-.hero__visual:hover .badge-emblem {
+.hero__visual:hover .badge-emblem,
+.badge-emblem--intro {
   opacity: 0.55;
   transform: translate(0, 0) scale(1);
   filter: drop-shadow(0 18px 28px var(--glow-soft));
@@ -658,7 +684,7 @@ onUnmounted(() => {
 }
 
 .visual-card--main {
-  top: 60px;
+  top: 38px;
   right: 0;
   width: min(360px, 90%);
   padding: 24px 26px;
@@ -728,7 +754,7 @@ onUnmounted(() => {
   margin: 0 auto;
   display: grid;
   gap: 18px;
-  padding: 16px 0 80px;
+  padding: 0 0 80px;
 }
 
 .row {
@@ -1122,10 +1148,11 @@ onUnmounted(() => {
   .hero {
     grid-template-columns: 1fr;
     gap: 24px;
-    padding-top: 44px;
+    min-height: auto;
+    padding-top: 36px;
   }
 
-  .hero__visual { min-height: 460px; }
+  .hero__visual { min-height: 400px; }
   .wordmark { font-size: clamp(7px, 1.55vw, 12px); }
 
   .badge-emblem { top: 24px; left: 24px; width: 170px; height: 170px; transform: translate(-40px, -40px) scale(0.9); }
@@ -1139,7 +1166,7 @@ onUnmounted(() => {
     padding-bottom: 56px;
   }
 
-  .hero { min-height: auto; padding-top: 30px; }
+  .hero { min-height: auto; padding-top: 26px; }
   .hero h1 { font-size: 30px; }
   .hero__subtitle { font-size: 13px; }
   .wordmark { font-size: clamp(5px, 1.8vw, 8px); }
@@ -1147,7 +1174,7 @@ onUnmounted(() => {
   .prompt-box { border-radius: 16px; }
   .prompt-box__footer { flex-wrap: wrap; }
   .prompt-box__footer span { width: 100%; }
-  .hero__visual { min-height: 380px; }
+  .hero__visual { min-height: 340px; }
   .visual-card--main { right: 0; width: min(320px, 90%); }
   .badge-emblem { width: 130px; height: 130px; }
 

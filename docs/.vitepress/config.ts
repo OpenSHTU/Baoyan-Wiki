@@ -51,8 +51,19 @@ const sidebar = Object.fromEntries(
 
 export default defineConfig({
   base: process.env.VITEPRESS_BASE ?? '/',
-  title: '保研资源 Wiki',
+  title: '保研 Wiki',
   description: '面向保研申请的信息整理、材料准备、面试复习与经验分享站点。',
+  head: [
+    [
+      'script',
+      {},
+      `try {
+        const key = 'vitepress-theme-appearance'
+        if (!localStorage.getItem(key)) localStorage.setItem(key, 'light')
+      } catch {}
+      `
+    ]
+  ],
   vite: {
     optimizeDeps: {
       include: ['mermaid']
@@ -86,7 +97,7 @@ export default defineConfig({
       provider: 'local'
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/' }
+      { icon: 'github', link: 'https://github.com/OpenSHTU/Baoyan-Wiki' }
     ],
     langMenuLabel: '语言',
     returnToTopLabel: '回到顶部',
