@@ -1,49 +1,56 @@
-# 保研资源 Wiki
+<div align="center">
 
-保研资源 Wiki 是一个基于 [VitePress](https://vitepress.dev/) 构建的保研信息整理与经验分享站点。站点保留原仓库的文档框架与主题结构，将内容调整为推免申请相关的时间线、材料准备、申请流程、面试复习和经验复盘。
+<img src="https://capsule-render.vercel.app/api?type=waving&color=C8102E&height=220&section=header&text=SHTU%20Baoyan%20Wiki&fontSize=65&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=ShanghaiTech%20Postgraduate%20Recommendation%20Resource&descAlignY=55&descSize=18" width="100%" />
 
-## 内容模块
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=C8102E&center=true&vCenter=true&width=800&lines=Welcome+to+SHTU+Postgraduate+Wiki!+🎓;For+ShanghaiTech+Students,+By+Students.;Master+your+application+timeline.;Share+knowledge,+Grow+together." alt="Typing SVG" />
+</a>
 
-- `docs/timeline/`：保研时间线与阶段规划
-- `docs/materials/`：简历、个人陈述、推荐信和证明材料
-- `docs/applications/`：信息搜集、导师联系和院校投递策略
-- `docs/interviews/`：专业课、英语面试和科研经历表达
-- `docs/experiences/`：经验稿模板与复盘方法
-- `docs/.vitepress/`：VitePress 配置、主题与组件
+<br/>
 
-## 技术栈
+<p>
+  <b>上海科技大学保研规划指南</b>
+</p>
+<p>
+  🚀 针对上科大培养方案定制 • 📚 通用保研规划全覆盖 • 🤝 经验互助与复盘
+</p>
 
-- [VitePress](https://vitepress.dev/)
-- `pnpm` 作为包管理器
-- `markdown-it-mathjax3` 用于公式渲染
-- `mermaid` 用于流程图渲染
+<p>
+  <a href="https://github.com/OpenSHTU/AI-Wiki">
+    <img src="https://img.shields.io/github/stars/OpenSHTU/AI-Wiki?style=for-the-badge&logo=github&logoColor=white&label=Star+Wiki&color=C8102E&labelColor=101010" alt="Star Wiki">
+  </a>
+  <a href="https://github.com/OpenSHTU">
+    <img src="https://img.shields.io/badge/Org-OpenSHTU-orange?style=for-the-badge&logo=github&logoColor=white&labelColor=101010" alt="OpenSHTU Org">
+  </a>
+  <a href="mailto:wangzh12023@shanghaitech.edu.cn">
+    <img src="https://img.shields.io/badge/Contact-Email-blue?style=for-the-badge&logo=gmail&logoColor=white&labelColor=101010" alt="Email">
+  </a>
+</p>
 
-## 本地开发
+</div>
 
-安装依赖：
+---
+
+## 📖 项目简介
+
+**Baoyan Wiki** 是一个由上科大学子自发创建、自发维护、自发贡献的保研指南网站，涵盖了从保研时间线到院校规划到最终夏令营预推免参加的一系列全流程攻略。
+
+本站点致力于服务 **上海科技大学（ShanghaiTech）** 学子，涵盖了从大三下学期预推免到正式投递的全流程引导。同时也欢迎兄弟院校学子参考其中的通用材料准备与复习策略。
+
+## 🛠️ 技术栈
+
+- **前端框架**: [VitePress](https://vitepress.dev/) 
+- **包管理**: `pnpm`
+
+## 💻 本地开发
 
 ```bash
+# 安装依赖
 pnpm install
-```
 
-启动本地开发服务：
-
-```bash
+# 启动开发服务器
 pnpm docs:dev
-```
 
-构建静态站点：
-
-```bash
+# 构建并预览
 pnpm docs:build
-```
-
-预览构建结果：
-
-```bash
 pnpm docs:preview
-```
-
-## 贡献说明
-
-欢迎补充真实、可复核、对后来者有帮助的保研经验。新增内容建议尽量标明申请年份、学科方向、背景概况、关键节点、面试形式和个人取舍，避免只给结论而缺少上下文。
