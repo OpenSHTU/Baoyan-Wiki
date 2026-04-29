@@ -1,0 +1,47 @@
+## Dependencies (Node.gitignore)
+node_modules/
+
+## Package manager caches (Node.gitignore)
+.npm/
+.pnpm-store/
+
+## Logs (Node.gitignore)
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+## Build and tooling outputs (Node.gitignore + project-specific)
+dist/
+coverage/
+*.tsbuildinfo
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+docs/.vitepress/.temp/
+.vitepress-dev.log
+
+## Environment files (Node.gitignore)
+.env
+.env.*
+!.env.example
+
+## OS-generated files (Global/macOS.gitignore + Global/Windows.gitignore)
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+## Editors (common from gitignore templates)
+.idea/
+.vscode-test/
+*.swp
+*.swo
+
+## Project-specific large local references
+refer/
+.github/skills/
+.codex
+.claude
+
