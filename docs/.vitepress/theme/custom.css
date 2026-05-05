@@ -583,6 +583,7 @@ body:has(.VPDoc:not(.landing-page)) {
   line-height: 1.65;
 }
 
+/* 多级列表折叠样式 - 已注释，使用默认样式
 .collapsible-lists-enabled .collapsible-list__item {
   list-style: none;
   margin-top: 6px;
@@ -628,6 +629,7 @@ body:has(.VPDoc:not(.landing-page)) {
   padding-left: 14px;
   border-left: 1px solid var(--vp-c-divider);
 }
+*/
 
 .repo-content-wrapper {
   max-width: 860px;

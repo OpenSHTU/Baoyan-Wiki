@@ -1,9 +1,9 @@
 <template>
   <DefaultTheme.Layout />
-  <CollapsibleLists />
+  <!-- <CollapsibleLists /> -->
 </template>
 
 <script setup>
 import DefaultTheme from 'vitepress/theme'
-import CollapsibleLists from './components/CollapsibleLists.vue'
+// import CollapsibleLists from './components/CollapsibleLists.vue'
 </script>

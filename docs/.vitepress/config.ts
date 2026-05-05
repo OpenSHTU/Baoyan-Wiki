@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+import fs from 'fs'
+import path from 'path'
 
 const nav = [
   { text: '首页', link: '/' },
@@ -40,10 +42,38 @@ const allSections = [
   { key: 'resources', text: '推荐资源' }
 ]
 
-const sectionSidebar = allSections.map((s) => ({
-  text: s.text,
-  items: [{ text: '总览', link: `/${s.key}/` }]
-}))
+const sectionSidebar = allSections.map((s) => {
+  const sectionDir = path.resolve(__dirname, `../${s.key}`)
+  let mdFiles: { text: string; link: string }[] = []
+  
+  try {
+    const files = fs.readdirSync(sectionDir)
+    mdFiles = files
+      .filter(file => file.endsWith('.md') && file !== 'index.md')
+      .map(file => {
+        const fileName = file.replace('.md', '')
+        const filePath = path.join(sectionDir, file)
+        const content = fs.readFileSync(filePath, 'utf-8')
+        const titleMatch = content.match(/^#\s+(.+)$/m)
+        const title = titleMatch ? titleMatch[1] : fileName
+        return {
+          text: title,
+          link: `/${s.key}/${fileName}`
+        }
+      })
+  } catch (err) {
+    console.error(`Error reading directory ${s.key}:`, err)
+  }
+  
+  return {
+    text: s.text,
+    collapsed: false,
+    items: [
+      { text: '总览', link: `/${s.key}/` },
+      ...mdFiles
+    ]
+  }
+})
 
 const sidebar = Object.fromEntries(
   allSections.map((s) => [`/${s.key}/`, sectionSidebar])
