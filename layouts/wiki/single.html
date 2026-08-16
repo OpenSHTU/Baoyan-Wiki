@@ -19,6 +19,9 @@
 
     <section class="blog-content">{{ .Content }}</section>
 
+    {{ partial "wiki/edit-link.html" . }}
+    {{ partial "common/giscus.html" . }}
+
     {{ $pages := .CurrentSection.RegularPages.ByWeight }}
     {{ if gt (len $pages) 1 }}
     <div class="paginator">

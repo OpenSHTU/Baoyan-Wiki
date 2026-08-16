@@ -30,6 +30,19 @@ params:
     enableMultiLang: false
     showMetaTags: false
   darkModeTheme: data-dark-mode
+  githubRepo: https://github.com/OpenSHTU/Baoyan-Wiki
+  githubBranch: main
+  githubContentPath: content
+  comments:
+    giscus:
+      enable: true
+      repo: OpenSHTU/Baoyan-Wiki
+      repo_id: R_kgDOSPfOTA
+      category: Announcements
+      category_id: DIC_kwDOSPfOTM4DDf-m
+      mapping: pathname
+      position: top
+      lang: zh-CN
 
 taxonomies: {}
 

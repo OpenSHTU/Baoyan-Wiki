@@ -34,6 +34,9 @@
       </ul>
     </div>
     {{ end }}
+
+    {{ partial "wiki/edit-link.html" . }}
+    {{ partial "common/giscus.html" . }}
   </article>
 
   <aside class="wiki-toc">

@@ -1,0 +1,12 @@
+{{ with .File }}
+  <div class="wiki-page-actions">
+    <a
+      class="wiki-edit-link"
+      href="{{ site.Params.githubRepo }}/edit/{{ site.Params.githubBranch }}/{{ site.Params.githubContentPath }}/{{ .Path }}"
+      target="_blank"
+      rel="noopener"
+    >
+      在 GitHub 上编辑此页
+    </a>
+  </div>
+{{ end }}

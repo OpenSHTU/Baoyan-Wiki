@@ -469,6 +469,37 @@
   }
 }
 
+.wiki-page-actions {
+  margin-top: 3.2rem;
+  padding-top: 2rem;
+  border-top: 1px dashed var(--wiki-line);
+}
+
+.wiki-edit-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3.6rem;
+  padding: 0.7rem 1.2rem;
+  color: var(--wiki-accent);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  border: 1px solid var(--wiki-accent);
+  border-radius: 0.6rem;
+  transition: color 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    color: var(--wiki-bg);
+    background: var(--wiki-accent);
+    text-decoration: none;
+  }
+}
+
+.wiki-main .comments {
+  margin-top: 2.4rem;
+}
+
 /* ============================================================
    首页
    ============================================================ */
