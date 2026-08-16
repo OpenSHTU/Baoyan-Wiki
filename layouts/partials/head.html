@@ -1,0 +1,43 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ block "title" . }}{{ .Title }}{{ end }}</title>
+
+    {{- /* Meta */}}
+    <meta charset="utf-8">
+    <meta name="description" content="Ladder@{{- with .Description }}{{ . }}{{- else }}{{- if or .IsPage .IsSection}}
+    {{- .Summary | default (printf "%s - %s" .Title  site.Title) }}{{- else }}
+    {{- with site.Params.description }}{{ . }}{{- end }}{{- end }}{{- end -}}">
+    <meta name="author" content="{{ site.Params.author }}">
+    <link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}">
+    {{- if site.Params.analytics.google.SiteVerificationTag }}
+        <meta name="google-site-verification" content="{{ site.Params.analytics.google.SiteVerificationTag }}">
+    {{- end }}
+
+    <link rel="alternate" type="application/rss+xml" href="{{.Site.BaseURL }}/index.xml" title="{{ .Site.Title }}">
+
+    {{ partial "common/analytics.html" . }}
+    {{ partial "common/extensions.html" . }}
+    {{ partial "common/icon.html" . }}
+    {{ if .Params.math }}{{ partial "math.html" . }}{{ end }}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" />
+
+    {{ $cssFile := (dict "targetPath" "css/main.css" ) }}
+    {{ $styles := resources.Get "/scss/app.scss" | toCSS $cssFile | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
+
+    {{ $wikiCss := resources.Get "scss/wiki.scss" | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $wikiCss.RelPermalink }}" integrity="{{ $wikiCss.Data.Integrity }}" crossorigin="anonymous" media="screen" />
+
+    {{ $highlight := resources.Get "scss/highlight/github-dark.min.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $highlight.RelPermalink }}" />
+
+    {{ $highlightjs := resources.Get "js/highlight.min.js" | minify | fingerprint }}
+    <script src="{{ $highlightjs.RelPermalink }}"></script>
+    <script>hljs.highlightAll();</script>
+
+    {{ if .Site.Params.options.showDarkMode -}}
+        {{ $darkModeInit := resources.Get "js/darkmode-init.js" | js.Build | minify -}}
+        <script>{{ $darkModeInit.Content | safeJS }}</script>
+    {{ end -}}
+</head>

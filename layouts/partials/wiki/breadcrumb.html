@@ -1,0 +1,32 @@
+{{ $sectionPath := "" }}
+{{ if .IsSection }}
+  {{ $sectionPath = .RelPermalink }}
+{{ else if .IsPage }}
+  {{ $sectionPath = .CurrentSection.RelPermalink }}
+{{ end }}
+{{ $groupName := "" }}
+{{ range hugo.Data.wiki.nav.groups }}
+  {{ $g := .name }}
+  {{ range .sections }}
+    {{ $s := site.GetPage (printf "/%s" .path) }}
+    {{ if and $s (eq $s.RelPermalink $sectionPath) }}
+      {{ $groupName = $g }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<nav class="wiki-breadcrumb" aria-label="面包屑">
+  <a href="{{ site.Home.RelPermalink }}">首页</a>
+  {{ if $groupName }}
+  <span class="wiki-breadcrumb-sep">/</span>
+  <span class="wiki-breadcrumb-group">{{ $groupName }}</span>
+  {{ end }}
+  {{ with $sectionPath }}
+  <span class="wiki-breadcrumb-sep">/</span>
+  <a href="{{ $sectionPath }}">{{ $.CurrentSection.Title }}</a>
+  {{ end }}
+  {{ if $.IsPage }}
+  <span class="wiki-breadcrumb-sep">/</span>
+  <span class="wiki-breadcrumb-current">{{ $.Title }}</span>
+  {{ end }}
+</nav>

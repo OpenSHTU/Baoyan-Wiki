@@ -1,0 +1,33 @@
+{{ define "content" }}
+<div class="wiki-home">
+  <header class="wiki-home-hero">
+    <p class="wiki-home-eyebrow">OpenSHTU</p>
+    <h1>保研wiki</h1>
+    <p class="wiki-home-sub">{{ site.Params.info }}</p>
+  </header>
+
+  {{ range $i, $group := hugo.Data.wiki.nav.groups }}
+  <section class="wiki-home-group">
+    <h2 class="wiki-home-group-title">
+      <span class="wiki-home-group-no">{{ printf "%02d" (add $i 1) }}</span>
+      <span>{{ $group.name }}</span>
+    </h2>
+    <div class="wiki-home-cards">
+      {{ range $group.sections }}
+        {{ $section := site.GetPage (printf "/%s" .path) }}
+        {{ if $section }}
+        <a class="wiki-card" href="{{ $section.RelPermalink }}">
+          <div class="wiki-card-head">
+            <strong>{{ $section.Title }}</strong>
+            <span class="wiki-card-arrow" aria-hidden="true">→</span>
+          </div>
+          {{ with $section.Description }}<p>{{ . }}</p>{{ end }}
+          <small>{{ $section.WordCount }} 字</small>
+        </a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+</div>
+{{ end }}

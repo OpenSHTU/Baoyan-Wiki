@@ -1,0 +1,50 @@
+{{ define "content" }}
+<details class="wiki-nav-mobile">
+  <summary><span>章节导航</span></summary>
+  {{ partial "wiki/sidebar.html" . }}
+</details>
+
+<div class="wiki-layout">
+  <aside class="wiki-sidebar">
+    {{ partial "wiki/sidebar.html" . }}
+  </aside>
+
+  <article class="blog-single wiki-main">
+    <header class="blog-title">
+      {{ partial "wiki/breadcrumb.html" . }}
+      <h1>{{ .Title }}</h1>
+    </header>
+
+    {{ partial "blog/meta.html" . }}
+
+    <section class="blog-content">{{ .Content }}</section>
+
+    {{ $pages := .CurrentSection.RegularPages.ByWeight }}
+    {{ if gt (len $pages) 1 }}
+    <div class="paginator">
+      {{ with $pages.Next . }}
+      <a class="prev" href="{{ .RelPermalink }}">
+        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M15 6 L9 12 L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span>{{ .Title }}</span>
+      </a>
+      {{ end }}
+      {{ with $pages.Prev . }}
+      <a class="next" href="{{ .RelPermalink }}">
+        <span>{{ .Title }}</span>
+        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M9 6 L15 12 L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </article>
+
+  <aside class="wiki-toc">
+    <p class="wiki-toc-title">本页目录</p>
+    {{ partial "blog/toc.html" . }}
+  </aside>
+</div>
+{{ end }}

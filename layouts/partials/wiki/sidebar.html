@@ -1,0 +1,39 @@
+{{ $current := . }}
+{{ $currentSection := "" }}
+{{ if .IsSection }}
+  {{ $currentSection = .RelPermalink }}
+{{ else if .IsPage }}
+  {{ $currentSection = .CurrentSection.RelPermalink }}
+{{ end }}
+
+<nav class="wiki-nav">
+  <div class="wiki-nav-head">
+    <a class="wiki-nav-brand" href="{{ site.Home.RelPermalink }}">{{ site.Params.brand }}</a>
+    <span class="wiki-nav-sub">保研申请手册</span>
+  </div>
+
+  {{ range hugo.Data.wiki.nav.groups }}
+  <div class="wiki-nav-group">
+    <p class="wiki-nav-group-name">{{ .name }}</p>
+    <ul class="wiki-nav-sections">
+      {{ range .sections }}
+        {{ $section := site.GetPage (printf "/%s" .path) }}
+        {{ if $section }}
+        <li>
+          <a href="{{ $section.RelPermalink }}" class="wiki-nav-section{{ if eq $currentSection $section.RelPermalink }} is-active{{ end }}">{{ $section.Title }}</a>
+          {{ with $section.RegularPages.ByWeight }}
+          <ul class="wiki-nav-pages">
+            {{ range . }}
+            <li>
+              <a href="{{ .RelPermalink }}"{{ if eq $current.RelPermalink .RelPermalink }} class="is-active"{{ end }}>{{ .Title }}</a>
+            </li>
+            {{ end }}
+          </ul>
+          {{ end }}
+        </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+</nav>

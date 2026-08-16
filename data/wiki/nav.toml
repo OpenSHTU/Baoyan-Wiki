@@ -1,0 +1,38 @@
+[[groups]]
+name = "保研基础"
+
+[[groups.sections]]
+path = "foundation/concepts"
+
+[[groups.sections]]
+path = "foundation/jargon"
+
+[[groups.sections]]
+path = "foundation/timeline"
+
+[[groups.sections]]
+path = "foundation/schools"
+
+[[groups]]
+name = "申请指南"
+
+[[groups.sections]]
+path = "guide/materials"
+
+[[groups.sections]]
+path = "guide/applications"
+
+[[groups.sections]]
+path = "guide/mentoring"
+
+[[groups.sections]]
+path = "guide/interviews"
+
+[[groups.sections]]
+path = "guide/camps"
+
+[[groups]]
+name = "资源汇总"
+
+[[groups.sections]]
+path = "library"

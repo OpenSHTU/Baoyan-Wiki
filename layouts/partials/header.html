@@ -1,0 +1,63 @@
+<nav class="navigation">
+    <section class="container">
+        <a class="navigation-brand" href="{{ .Site.BaseURL | relLangURL }}">
+            {{ .Site.Params.brand }}
+        </a>
+        <input type="checkbox" id="menu-toggle" />
+        <label class="menu-button float-right" for="menu-toggle">
+            <span></span><span></span><span></span>
+        </label>
+        {{ if .Site.Menus.main }}
+        <ul class="navigation-list" id="navigation-list">
+            {{ range sort .Site.Menus.main }}
+                {{ if .HasChildren }}
+                <li class="navigation-item navigation-menu navigation-dropdown">
+                    <a class="navigation-link navigation-dropdown-toggle" href="{{ .URL | relLangURL }}">
+                        {{ .Name }}<span class="navigation-dropdown-caret" aria-hidden="true">▾</span>
+                    </a>
+                    <ul class="navigation-dropdown-menu">
+                        {{ range sort .Children }}
+                        <li class="navigation-dropdown-item">
+                            <a class="navigation-dropdown-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </li>
+                {{ else }}
+                <li class="navigation-item navigation-menu">
+                    <a class="navigation-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+            {{ end }}
+
+            <li class="navigation-item menu-separator">
+                <span>|</span>
+            </li>
+
+            <li class="navigation-item navigation-social">
+                <a class="navigation-link" href="https://github.com/OpenSHTU/Baoyan-Wiki" target="_blank" rel="noopener" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+            </li>
+
+            {{ with .Site.Params.social}}
+            {{ range sort . }}
+            <li class="navigation-item navigation-social">
+                <a class="navigation-link" href="{{ .url | relURL }}">{{ .pre | safeHTML }}</a>
+            </li>
+            {{ end }}
+            {{ end }}
+
+            {{ if .Site.Params.options.showDarkMode -}}
+            <li class="navigation-item navigation-dark">
+                <button id="mode" type="button" aria-label="toggle user light or dark theme">
+                    <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+                    <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+                </button>
+            </li>
+
+            {{ end -}}
+        </ul>
+        {{ end }}
+    </section>
+</nav>

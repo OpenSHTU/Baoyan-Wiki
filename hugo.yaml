@@ -1,0 +1,85 @@
+baseURL: https://example.org/
+title: 保研 Wiki
+theme: hugo-theme-ladder
+locale: zh-cn
+defaultContentLanguage: zh
+hasCJKLanguage: true
+enableRobotsTXT: true
+enableEmoji: true
+paginate: 10
+copyright: "Copyright © 2026"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+
+params:
+  brand: 保研 Wiki
+  author: 保研 Wiki
+  authorDescription: 面向保研申请的信息整理、材料准备、面试复习与经验分享手册
+  info: 由 OpenSHTU 社区维护
+  favicon: /favicon.svg
+  description: 面向保研申请的信息整理、材料准备、面试复习与经验分享站点
+  options:
+    showDarkMode: true
+    enableImgZooming: true
+    enableMultiLang: false
+    showMetaTags: false
+  darkModeTheme: data-dark-mode
+
+taxonomies: {}
+
+menu:
+  main:
+    - name: 保研基础
+      identifier: foundation
+      url: /foundation/concepts/
+      weight: 1
+    - name: 基本概念
+      parent: foundation
+      url: /foundation/concepts/
+      weight: 1
+    - name: 保研黑话
+      parent: foundation
+      url: /foundation/jargon/
+      weight: 2
+    - name: 时间线
+      parent: foundation
+      url: /foundation/timeline/
+      weight: 3
+    - name: 院校选择
+      parent: foundation
+      url: /foundation/schools/
+      weight: 4
+    - name: 申请指南
+      identifier: guide
+      url: /guide/materials/
+      weight: 2
+    - name: 材料准备
+      parent: guide
+      url: /guide/materials/
+      weight: 1
+    - name: 申请流程
+      parent: guide
+      url: /guide/applications/
+      weight: 2
+    - name: 套磁指南
+      parent: guide
+      url: /guide/mentoring/
+      weight: 3
+    - name: 面试准备
+      parent: guide
+      url: /guide/interviews/
+      weight: 4
+    - name: 夏令营&预推免指南
+      parent: guide
+      url: /guide/camps/
+      weight: 5
+    - name: 资源汇总
+      identifier: library
+      url: /library/
+      weight: 3

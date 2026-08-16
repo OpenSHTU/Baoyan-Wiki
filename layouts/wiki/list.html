@@ -1,0 +1,44 @@
+{{ define "content" }}
+<details class="wiki-nav-mobile">
+  <summary><span>章节导航</span></summary>
+  {{ partial "wiki/sidebar.html" . }}
+</details>
+
+<div class="wiki-layout">
+  <aside class="wiki-sidebar">
+    {{ partial "wiki/sidebar.html" . }}
+  </aside>
+
+  <article class="blog-single wiki-main">
+    <header class="blog-title">
+      {{ partial "wiki/breadcrumb.html" . }}
+      <h1>{{ .Title }}</h1>
+    </header>
+
+    {{ partial "blog/meta.html" . }}
+
+    <section class="blog-content">{{ .Content }}</section>
+
+    {{ with .CurrentSection.RegularPages.ByWeight }}
+    <div class="wiki-subpages">
+      <h2>本章内容</h2>
+      <ul class="wiki-subpages-list">
+        {{ range . }}
+        <li>
+          <a href="{{ .RelPermalink }}">
+            <strong>{{ .Title }}</strong>
+            {{ with .Description }}<span>{{ . }}</span>{{ end }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </article>
+
+  <aside class="wiki-toc">
+    <p class="wiki-toc-title">本页目录</p>
+    {{ partial "blog/toc.html" . }}
+  </aside>
+</div>
+{{ end }}
