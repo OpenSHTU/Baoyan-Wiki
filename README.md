@@ -43,18 +43,25 @@
 
 ## 🛠️ 技术栈
 
-- **前端框架**: [VitePress](https://vitepress.dev/) 
-- **包管理**: `pnpm`
+- **静态站点生成器**: [Hugo](https://gohugo.io/) (extended 版)
+- **主题**: [hugo-theme-ladder](https://github.com/guangzhengli/hugo-theme-ladder)（以 git submodule 引入）
 
 ## 💻 本地开发
 
+> [!NOTE]
+> 需要先安装 [Hugo (extended)](https://gohugo.io/installation/)（与 CI 一致，建议使用 `0.165.0` 或更高版本）。
+
 ```bash
-# 安装依赖
-pnpm install
+# 克隆仓库并拉取主题子模块
+git clone --recurse-submodules https://github.com/OpenSHTU/Baoyan-Wiki.git
+cd Baoyan-Wiki
 
-# 启动开发服务器
-pnpm docs:dev
+# 启动开发服务器（默认 http://localhost:1313）
+hugo server
 
-# 构建并预览
-pnpm docs:build
-pnpm docs:preview
+# 构建静态站点（输出到 public/）
+hugo --minify
+
+# 本地预览构建产物
+hugo server --disableFastRender
+```
