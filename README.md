@@ -12,7 +12,7 @@
   <b>上海科技大学保研规划指南</b>
 </p>
 <p>
-  🚀 针对上科大培养方案定制 • 📚 通用保研规划全覆盖 • 🤝 经验互助与复盘
+  For ShanghaiTech Students, By Students.
 </p>
 
 <p>
