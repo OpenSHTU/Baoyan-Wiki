@@ -71,6 +71,7 @@
   border: 1px solid var(--wiki-line);
   border-radius: 0.8rem;
   box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.1);
+  text-align: center;
   z-index: 20;
 }
 
@@ -81,10 +82,14 @@
 
 .navigation-dropdown-item {
   margin: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .navigation-dropdown-link {
   display: block;
+  width: 100%;
+  box-sizing: border-box;
   padding: 0.7rem 1.2rem;
   font-size: 1.45rem;
   font-weight: 500;
@@ -618,14 +623,18 @@
   stroke: var(--wiki-accent);
   stroke-width: 1.8;
   stroke-linecap: round;
-  stroke-dasharray: 820;
-  stroke-dashoffset: 820;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
   animation: wiki-timeline-draw 6.5s ease-in-out infinite;
 }
 
 .wiki-home-timeline-traveler {
   fill: var(--wiki-accent);
   filter: drop-shadow(0 0 0.5rem var(--wiki-accent));
+  offset-path: path("M0 0 C118 26 118 73 0 81 C-118 89 -118 149 0 161 C118 173 118 234 0 242 C-118 250 -118 311 0 323 C118 335 118 395 0 403 C-118 411 -118 471 0 484");
+  offset-distance: 0%;
+  offset-rotate: 0deg;
+  animation: wiki-timeline-travel 6.5s ease-in-out infinite;
 }
 
 .wiki-home-timeline-step {
@@ -722,8 +731,13 @@
 }
 
 @keyframes wiki-timeline-draw {
-  0%, 8% { stroke-dashoffset: 820; }
+  0%, 8% { stroke-dashoffset: 100; }
   75%, 100% { stroke-dashoffset: 0; }
+}
+
+@keyframes wiki-timeline-travel {
+  0%, 8% { offset-distance: 0%; }
+  75%, 100% { offset-distance: 100%; }
 }
 
 .wiki-home-actions {
