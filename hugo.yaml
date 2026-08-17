@@ -84,14 +84,10 @@ menu:
       parent: guide
       url: /guide/mentoring/
       weight: 3
-    - name: 面试准备
-      parent: guide
-      url: /guide/interviews/
-      weight: 4
     - name: 夏令营&预推免指南
       parent: guide
       url: /guide/camps/
-      weight: 5
+      weight: 4
     - name: 资源汇总
       identifier: library
       url: /library/

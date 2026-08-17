@@ -26,9 +26,6 @@ path = "guide/applications"
 path = "guide/mentoring"
 
 [[groups.sections]]
-path = "guide/interviews"
-
-[[groups.sections]]
 path = "guide/camps"
 
 [[groups]]
