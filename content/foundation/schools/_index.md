@@ -1,6 +1,6 @@
 ---
 title: 院校选择
-description: 调研院校、定位夏令营，结合自身背景筛选目标院校
+description: 结合自身背景筛选目标院校
 date: 2026-08-14
 type: wiki
 ---

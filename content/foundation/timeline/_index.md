@@ -1,6 +1,6 @@
 ---
 title: 时间线
-description: 按阶段拆解准备事项，判断当前阶段最值得投入的事情
+description: 快速认清保研时间线
 date: 2026-08-14
 type: wiki
 ---

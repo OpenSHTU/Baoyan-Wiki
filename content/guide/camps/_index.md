@@ -1,6 +1,6 @@
 ---
 title: 夏令营&预推免指南
-description: 申请季最密集的阶段：重点关注报名流程和如何准备
+description: 报名流程和如何准备
 date: 2026-08-14
 type: wiki
 ---
