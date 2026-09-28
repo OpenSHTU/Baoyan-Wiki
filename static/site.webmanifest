@@ -1,15 +1,15 @@
 {
-  "name": "Guangzheng Li",
-  "short_name": "guangzhengli",
+  "name": "OpenSHTU Baoyan Wiki",
+  "short_name": "Baoyan Wiki",
   "icons": [
     {
       "src": "/favicon.png",
-      "sizes": "192x192",
+      "sizes": "400x400",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#e60012",
+  "background_color": "#e60012",
   "display": "standalone"
 }

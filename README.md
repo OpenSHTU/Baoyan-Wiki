@@ -16,8 +16,8 @@
 </p>
 
 <p>
-  <a href="https://github.com/OpenSHTU/AI-Wiki">
-    <img src="https://img.shields.io/github/stars/OpenSHTU/AI-Wiki?style=for-the-badge&logo=github&logoColor=white&label=Star+Wiki&color=C8102E&labelColor=101010" alt="Star Wiki">
+  <a href="https://github.com/OpenSHTU/Baoyan-Wiki">
+    <img src="https://img.shields.io/github/stars/OpenSHTU/Baoyan-Wiki?style=for-the-badge&logo=github&logoColor=white&label=Star+Wiki&color=C8102E&labelColor=101010" alt="Star Wiki">
   </a>
   <a href="https://github.com/OpenSHTU">
     <img src="https://img.shields.io/badge/Org-OpenSHTU-orange?style=for-the-badge&logo=github&logoColor=white&labelColor=101010" alt="OpenSHTU Org">

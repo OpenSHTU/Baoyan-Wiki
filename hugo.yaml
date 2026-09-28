@@ -22,7 +22,7 @@ params:
   author: 保研 Wiki
   authorDescription: 面向保研申请的信息整理、材料准备、面试复习与经验分享手册
   info: 由 OpenSHTU 社区维护
-  favicon: /favicon.svg
+  favicon: /favicon.png
   description: 面向保研申请的信息整理、材料准备、面试复习与经验分享站点
   options:
     showDarkMode: true
