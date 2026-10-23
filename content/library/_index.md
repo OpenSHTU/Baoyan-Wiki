@@ -12,7 +12,7 @@ type: wiki
 ### 资源分享类
 
 - [CSWIKI](https://csbaoyan.top/)：规模最大、最权威的保研资源库网站，包含大量保研经验、材料和信息，覆盖全国各大高校和专业。虽然主要针对 CS 学生，对其他专业学生也有很大参考价值。
-- [强弱 com 汇总](http://t.cn/A6EgfCAC)：各个学校各个学院的强弱 com，但时间较早，部分信息可能过时；也可在 [CSWIKI 院校解析](https://csbaoyan.top/%E4%BF%9D%E7%A0%94%E6%8C%87%E5%8D%97/%E9%99%A2%E6%A0%A1%E8%A7%A3%E6%9E%90/) 找到相关信息。
+- [强弱 com 汇总](https://docs.google.com/spreadsheets/d/1r-b8tAx2vCUBYut6gMFrhNj9nxL3x2fgdRgaJCMusXU/edit)：各个学校各个学院的强弱 com，但时间较早，部分信息可能过时；也可在 [CSWIKI 院校解析](https://csbaoyan.top/%E4%BF%9D%E7%A0%94%E6%8C%87%E5%8D%97/%E9%99%A2%E6%A0%A1%E8%A7%A3%E6%9E%90/) 找到相关信息。
 
 ### 夏令营信息获取类
 
